@@ -25,7 +25,17 @@ export class AuthService {
         data: {
           email: dto.email,
           hash,
-          name: dto.name
+          name: dto.name,
+          fantasyName: dto.fantasyName,
+          cpnj: dto.cpnj,
+          fieldOfActivity: dto.fieldOfActivity,
+          reasonSocial: dto.reasonSocial,
+          responsibleName: dto.reasonSocial,
+          city: dto.city,
+          neighborhood: dto.neighborhood,
+          number: dto.number,
+          road: dto.road,
+          uf: dto.uf
         },
       });
 
@@ -61,7 +71,6 @@ export class AuthService {
       user.hash,
       dto.password,
     );
-    // if password incorrect throw exception
     if (!pwMatches)
       throw new ForbiddenException(
         'Credentials incorrect',

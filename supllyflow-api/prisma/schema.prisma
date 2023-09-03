@@ -19,6 +19,17 @@ model User {
   hash  String
 
   name String
+  fantasyName String
+  reasonSocial String
+  cpnj String
+  responsibleName String
+  fieldOfActivity String
+
+  city String
+  uf String
+  road String
+  neighborhood String
+  number String
 
   @@map("users")
 }
