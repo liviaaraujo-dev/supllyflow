@@ -1,9 +1,27 @@
-# NestJs REST API tutorial for FreeCodeCamp
+# supllyflow-api
 
+## Run the Project
 
-### Run the API in development mode
-```javascript
-yarn // install
-yarn db:dev:restart // inicar postgres docker e push migrations
-yarn start:dev // start api in dev mode
+### Criar container docker
+
+```bash
+docker-compose up
+```
+
+### Instalar depedências da api
+
+```bash
+npm install // install
+```
+
+### Aplicar Migations Feitas
+
+```bash
+npx prisma migrate up
+```
+
+### Start Api
+
+```bash
+npm run start:dev
 ```
