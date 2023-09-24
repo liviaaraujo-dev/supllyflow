@@ -17,7 +17,7 @@ interface FormData {
   password: string;
 }
 
-export function Login() {
+export function registerUser() {
   const {
     control,
     handleSubmit,
@@ -35,26 +35,34 @@ export function Login() {
       defaultSource={backgroundImg}
     >
       <View style={styles.container}>
-        <Text style={styles.title}>Entrar</Text>
-        <Text style={styles.subtitle}>Seja bem vindo!</Text>
-        {/* <Text>Email:</Text> */}
+        <Text style={styles.title}>Criar uma conta</Text>
+        <Text style={styles.subtitle}>Criar uma  conta para experimentar todas as funcionalidades do aplicativo.</Text>
+        {/* <Text>responsavel:</Text> */}
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              placeholder="Email"
+              placeholder="Nome do responsável"
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
               style={styles.input}
             />
           )}
-          name="email"
-          rules={{ required: "Email é obrigatório" }}
-        />
-        {errors.email && (
-          <Text style={{ color: "red" }}>{errors.email.message}</Text>
+
+                  {/* <Text>responsavel:</Text> */}
+        <Controller
+        control={control}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput
+            placeholder="Nome do responsável"
+            onChangeText={onChange}
+            onBlur={onBlur}
+            value={value}
+            style={styles.input}
+          />
         )}
+
 
         {/* <Text>Senha:</Text> */}
         <Controller
