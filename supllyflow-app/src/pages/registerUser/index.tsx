@@ -14,7 +14,10 @@ import ButtonSecondary from "../../components/buttonSecondary";
 
 interface FormData {
   nomeResponsavel: string;
-  password: string;
+  nomeFantasia: string;
+  razaoSocial: string;
+  cnpj: string;
+  ramoAtividade: string;
 }
 
 export function RegisterUser() {
@@ -40,6 +43,7 @@ export function RegisterUser() {
           Criar uma conta para experimentar todas as funcionalidades do
           aplicativo.
         </Text>
+
         <Controller
           control={control}
           name="nomeResponsavel"
@@ -52,12 +56,19 @@ export function RegisterUser() {
               style={styles.input}
             />
           )}
+          name= "nomeResponsavel"
+          rules={{ required: "O nome do responsável é obrigatório" }}
         />
+        {errors.nomeResponsavel && (
+          <Text style={{ color: "red" }}>{errors.nomeResponsavel.message}</Text>
+        )}
+        
+
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              placeholder="Digite sua senha"
+              placeholder="Nome Fantasia"
               onChangeText={onChange}
               style={styles.input}
               onBlur={onBlur}
@@ -65,21 +76,77 @@ export function RegisterUser() {
               secureTextEntry
             />
           )}
-          name="password"
-          rules={{ required: "Senha é obrigatória" }}
+          name="nomeFantasia"
+          rules={{ required: "O nome fantasia é obrigatório" }}
         />
-        {errors.password && (
-          <Text style={{ color: "red" }}>{errors.password.message}</Text>
+        {errors.nomeFantasia && (
+          <Text style={{ color: "red" }}>{errors.nomeFantasia.message}</Text>
         )}
 
-        <TouchableOpacity>
-          <Text style={styles.forgotPasswordBtn}>Esqueceu sua senha?</Text>
-        </TouchableOpacity>
+<Controller
+          control={control}
+          name="razaoSocial"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              placeholder="Razão Social"
+              onChangeText={onChange}
+              onBlur={onBlur}
+              value={value}
+              style={styles.input}
+            />
+          )}
+          name="razaoSocial"
+          rules={{ required: "A razão social é obrigatória" }}
+        />
+        {errors.razaoSocial && (
+          <Text style={{ color: "red" }}>{errors.razaoSocial.message}</Text>
+        )}
+        
 
-        <ButtonPrimary title="Entrar" onPress={handleSubmit(onSubmit)} />
+        <Controller
+          control={control}
+          name="cnpj"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              placeholder="CNPJ"
+              onChangeText={onChange}
+              onBlur={onBlur}
+              value={value}
+              style={styles.input}
+            />
+          )}
+          name="cnpj"
+          rules={{ required: "O CNPJ é obrigatório" }}
+        />
+        {errors.cnpj && (
+          <Text style={{ color: "red" }}>{errors.cnpj.message}</Text>
+        )}
+        
+
+        <Controller
+          control={control}
+          name="ramoAtividade"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              placeholder="Ramo de Atividade"
+              onChangeText={onChange}
+              onBlur={onBlur}
+              value={value}
+              style={styles.input}
+            />
+          )}
+          name="ramoAtividade"
+          rules={{ required: "O ramo de atividade é obrigatório" }}
+        />
+        {errors.ramoAtividade && (
+          <Text style={{ color: "red" }}>{errors.ramoAtividade.message}</Text>
+        )}
+
+
+        <ButtonPrimary title="Próximo" onPress={handleSubmit(onSubmit)} />
 
         <ButtonSecondary
-          title="Criar nova conta"
+          title="Já possui uma conta?"
           onPress={function (): void {
             throw new Error("Function not implemented.");
           }}
