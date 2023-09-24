@@ -13,11 +13,11 @@ import ButtonPrimary from "../../components/buttonPrimary";
 import ButtonSecondary from "../../components/buttonSecondary";
 
 interface FormData {
-  email: string;
+  nomeResponsavel: string;
   password: string;
 }
 
-export function registerUser() {
+export function RegisterUser() {
   const {
     control,
     handleSubmit,
@@ -36,10 +36,13 @@ export function registerUser() {
     >
       <View style={styles.container}>
         <Text style={styles.title}>Criar uma conta</Text>
-        <Text style={styles.subtitle}>Criar uma  conta para experimentar todas as funcionalidades do aplicativo.</Text>
-        {/* <Text>responsavel:</Text> */}
+        <Text style={styles.subtitle}>
+          Criar uma conta para experimentar todas as funcionalidades do
+          aplicativo.
+        </Text>
         <Controller
           control={control}
+          name="nomeResponsavel"
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
               placeholder="Nome do responsável"
@@ -49,22 +52,7 @@ export function registerUser() {
               style={styles.input}
             />
           )}
-
-                  {/* <Text>responsavel:</Text> */}
-        <Controller
-        control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput
-            placeholder="Nome do responsável"
-            onChangeText={onChange}
-            onBlur={onBlur}
-            value={value}
-            style={styles.input}
-          />
-        )}
-
-
-        {/* <Text>Senha:</Text> */}
+        />
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -90,9 +78,12 @@ export function registerUser() {
 
         <ButtonPrimary title="Entrar" onPress={handleSubmit(onSubmit)} />
 
-       <ButtonSecondary title="Criar nova conta" onPress={function (): void {
-          throw new Error("Function not implemented.");
-        } } />
+        <ButtonSecondary
+          title="Criar nova conta"
+          onPress={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
       </View>
     </ImageBackground>
   );
