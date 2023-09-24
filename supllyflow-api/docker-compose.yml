@@ -9,16 +9,23 @@ services:
       POSTGRES_PASSWORD: 123
       POSTGRES_DB: supllyflow
     networks:
-      - supllyflow
-  test-db:
-    image: postgres:13
+      - supllyflow-net
+
+  api:
+    image: supllyflow-api:0.1
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npm run start:dev
     ports:
-      - 5435:5432
+      - 3333:3333
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123
-      POSTGRES_DB: supllyflow
+      - DATABASE_URL=postgresql://postgres:123@supllyflow:5432/app?schema=public
+    volumes: 
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     networks:
-      - supllyflow
+      - supllyflow-net
+  
 networks:
-  supllyflow:
+  supllyflow-net:
