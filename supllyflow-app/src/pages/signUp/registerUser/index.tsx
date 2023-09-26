@@ -7,10 +7,10 @@ import {
   ImageBackground,
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
-import backgroundImg from "../../assets/background-login.png";
+import backgroundImg from "../../../assets/background-login.png";
 import { styles } from "./style";
-import ButtonPrimary from "../../components/buttonPrimary";
-import ButtonSecondary from "../../components/buttonSecondary";
+import ButtonPrimary from "../../../components/buttonPrimary";
+import ButtonSecondary from "../../../components/buttonSecondary";
 
 interface FormData {
   nomeResponsavel: string;

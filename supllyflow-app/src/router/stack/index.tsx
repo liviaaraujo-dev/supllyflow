@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Login } from '../../pages/login';
-import { RegisterUser } from '../../pages/registerUser';
+import { RegisterUser } from '../../pages/signUp/registerUser';
 
 const Stack = createStackNavigator();
 
