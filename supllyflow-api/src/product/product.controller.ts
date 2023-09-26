@@ -1,7 +1,7 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Param, Patch, Post } from '@nestjs/common';
 import { ProductDto } from './dto/product.dto';
 import { AuthService } from 'src/auth/auth.service';
-import { ProductService } from './product.service';
+import { ProductService } from './ProductService';
 import { GetUser } from 'src/auth/decorator';
 
 @Controller('product')
