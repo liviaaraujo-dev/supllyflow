@@ -20,7 +20,7 @@ interface FormData {
   ramoAtividade: string;
 }
 
-export function RegisterUser() {
+export function SignUp1() {
   const {
     control,
     handleSubmit,
