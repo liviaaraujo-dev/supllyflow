@@ -5,12 +5,15 @@ import {
   TextInput,
   TouchableOpacity,
   ImageBackground,
+  Image
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import backgroundImg from "../../assets/background-login.png";
+import logo from "../../assets/logo.png";
 import { styles } from "./style";
 import ButtonPrimary from "../../components/buttonPrimary";
 import ButtonSecondary from "../../components/buttonSecondary";
+import { useNavigation } from "@react-navigation/native";
 
 interface FormData {
   email: string;
@@ -28,6 +31,8 @@ export function Login() {
     console.log(data);
   }
 
+   const navigation = useNavigation();
+
   return (
     <ImageBackground
       source={backgroundImg}
@@ -37,7 +42,6 @@ export function Login() {
       <View style={styles.container}>
         <Text style={styles.title}>Entrar</Text>
         <Text style={styles.subtitle}>Seja bem vindo!</Text>
-        {/* <Text>Email:</Text> */}
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -56,7 +60,6 @@ export function Login() {
           <Text style={{ color: "red" }}>{errors.email.message}</Text>
         )}
 
-        {/* <Text>Senha:</Text> */}
         <Controller
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
@@ -82,8 +85,8 @@ export function Login() {
 
         <ButtonPrimary title="Entrar" onPress={handleSubmit(onSubmit)} />
 
-       <ButtonSecondary title="Criar nova conta" onPress={function (): void {
-          throw new Error("Function not implemented.");
+       <ButtonSecondary title="Criar nova conta" onPress={function () {
+          navigation.navigate('signUp1' as never);
         } } />
       </View>
     </ImageBackground>
