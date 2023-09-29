@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  dev-db:
+  db:
     image: postgres:13
     ports:
       - 5434:5432
@@ -16,14 +16,11 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: npm run start:dev
+    command: npm run dev
     ports:
       - 3333:3333
     environment:
-      - DATABASE_URL=postgresql://postgres:123@supllyflow:5432/app?schema=public
-    volumes: 
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - DATABASE_URL=postgresql://postgres:123@192.168.143.13:5434/supllyflow?schema=public
     networks:
       - supllyflow-net
   

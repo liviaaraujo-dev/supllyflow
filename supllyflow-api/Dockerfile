@@ -1,17 +1,17 @@
 FROM node:alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
 
-COPY prisma ./prisma/
+COPY prisma ./prisma
 
-COPY .env ./
+COPY src ./src
 
 RUN npm install
 
-COPY . .
+RUN npm install -g ts-node typescript ts-node-dev
 
-RUN npx prisma generate
+COPY . .
 
 EXPOSE 3333

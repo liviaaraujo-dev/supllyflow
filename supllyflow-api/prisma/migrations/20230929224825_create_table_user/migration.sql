@@ -1,14 +1,13 @@
 -- CreateTable
-CREATE TABLE "users" (
+CREATE TABLE "User" (
     "id" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "email" TEXT NOT NULL,
-    "hash" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
     "fantasyName" TEXT NOT NULL,
     "reasonSocial" TEXT NOT NULL,
-    "cpnj" TEXT NOT NULL,
+    "cnpj" TEXT NOT NULL,
     "responsibleName" TEXT NOT NULL,
     "fieldOfActivity" TEXT NOT NULL,
     "city" TEXT NOT NULL,
@@ -17,8 +16,8 @@ CREATE TABLE "users" (
     "neighborhood" TEXT NOT NULL,
     "number" TEXT NOT NULL,
 
-    CONSTRAINT "users_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
