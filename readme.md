@@ -1,27 +1,37 @@
 # supllyflow-api
 
-## Run the Project
+## Rodar Api
 
-### Criar container docker
+### Entrar na pasta da api
 
 ```bash
-docker-compose up
+    cd supllyflow-api
 ```
 
-### Instalar depedências da api
+### Configurar arquivo .env
+
+- Duplicar arquivo .env.example
+- Renomear .env.example para .env
+- No arquivo .env colocar ip da maquina fisica no local "meu_ip"
+
+### Iniciar docker
 
 ```bash
-npm install // install
+    docker-compose up --build
 ```
 
-### Aplicar Migations Feitas
+### Aplicar migrations no banco
 
 ```bash
-npx prisma migrate up
+    npx prisma migrate dev
 ```
 
-### Start Api
+## Rodar App
+
+### Entrar na pasta app
+
+### Executar o comando
 
 ```bash
-npm run start:dev
+    npx expo start
 ```
